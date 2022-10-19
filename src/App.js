@@ -14,7 +14,7 @@ import {
 } from "firebase/firestore";
 
 const style = {
-  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740] py-16`,
+  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740] py-16 overflow-y-scroll`,
   container: `bg-slate-100 max-w-[600px] w-full m-auto rounded-md shadow-xl p-4`,
   heading: `text-lg md:text-3xl font-bold text-center text-gray-700 p-2`,
   form: `flex justify-between mt-4`,
