@@ -18,4 +18,4 @@
 
 ## App Screenshot
 
-![image](https://user-images.githubusercontent.com/50941074/196704625-3b7c8c34-0db4-4217-9d28-7b3290d65bc0.png)
+![image](https://user-images.githubusercontent.com/50941074/196790007-99b43241-7c10-4267-9e0d-01054f3662ea.png)
