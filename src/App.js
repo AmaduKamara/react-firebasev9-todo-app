@@ -10,16 +10,17 @@ import {
   updateDoc,
   doc,
   addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 const style = {
-  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740] pt-16`,
+  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740] py-16`,
   container: `bg-slate-100 max-w-[600px] w-full m-auto rounded-md shadow-xl p-4`,
-  heading: `text-3xl font-bold text-center text-gray-700 p-2`,
+  heading: `text-lg md:text-3xl font-bold text-center text-gray-700 p-2`,
   form: `flex justify-between mt-4`,
   input: `border p-2 w-full text-lg focus:outline-[#477998]`,
   button: `border p-4 ml-2 bg-[#477998] text-slate-100`,
-  count: `text-center  p-2`,
+  count: `text-center text-sm md:text-lg p-2`,
 };
 
 function App() {
@@ -66,6 +67,9 @@ function App() {
   };
 
   // Delete a firebase document
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
+  };
 
   return (
     <div className={style.bg}>
@@ -85,7 +89,12 @@ function App() {
         </form>
         <ul>
           {todos.map((todo, idx) => (
-            <Todo key={idx} todo={todo} toggleComplete={toggleComplete} />
+            <Todo
+              key={idx}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
           ))}
         </ul>
         {todos.length < 1 ? (

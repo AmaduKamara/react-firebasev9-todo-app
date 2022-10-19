@@ -5,13 +5,13 @@ const style = {
   li: `flex justify-between bg-slate-200 p-4 my-2 capitalize`,
   complete: `flex justify-between bg-slate-400 p-4 my-2 capitalize`,
   row: `flex`,
-  text: `ml-2 cursor-pointer text-sm`,
+  text: `ml-2 cursor-pointer text-xs md:text-sm mr-2`,
   textComplete: `ml-2 cursor-pointer line-through`,
   button: `cursor-pointer flex items-center`,
   delete: `hover:text-[#F64740]`,
 };
 
-const Todo = ({ todo, toggleComplete }) => {
+const Todo = ({ todo, toggleComplete, deleteTodo }) => {
   return (
     <li className={todo.completed ? style.complete : style.li}>
       <div className={style.row}>
@@ -24,7 +24,7 @@ const Todo = ({ todo, toggleComplete }) => {
           {todo.text}
         </p>
       </div>
-      <button>
+      <button onClick={() => deleteTodo(todo.id)}>
         <FaRegTrashAlt className={style.delete} />
       </button>
     </li>
