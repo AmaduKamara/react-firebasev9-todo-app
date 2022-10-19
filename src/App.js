@@ -7,7 +7,7 @@ const style = {
   container: `bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
   heading: `text-3xl font-bold text-center text-gray-700 p-2`,
   form: `flex justify-between mt-4`,
-  input: `border p-2 w-full text-xl focus:outline-[#477998]`,
+  input: `border p-2 w-full text-lg focus:outline-[#477998]`,
   button: `border p-4 ml-2 bg-[#477998] text-slate-100`,
   count: `text-center  p-2`,
 };
@@ -16,6 +16,7 @@ function App() {
   const [todos, setTodos] = useState([
     "Learn react",
     "Learn NodeJS for API development",
+    "Build a MERN CRUD app with NodeJS, React and Redux.",
   ]);
   return (
     <div className={style.bg}>
