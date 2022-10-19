@@ -9,6 +9,7 @@ import {
   onSnapshot,
   updateDoc,
   doc,
+  addDoc,
 } from "firebase/firestore";
 
 const style = {
@@ -23,8 +24,24 @@ const style = {
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [inputText, setInputText] = useState("");
 
   // Create todo
+  const createTodo = async (e) => {
+    e.preventDefault();
+
+    if (inputText === "") {
+      return alert("Please enter a valid todo");
+    }
+
+    await addDoc(collection(db, "todos"), {
+      text: inputText,
+      completed: false,
+    });
+    setInputText("");
+  };
+
+  // Read todo from firebase database
   useEffect(() => {
     const q = query(collection(db, "todos"));
 
@@ -41,8 +58,6 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  // Read todo from firebase database
-
   // Update a firebase document
   const toggleComplete = async (todo) => {
     await updateDoc(doc(db, "todos", todo.id), {
@@ -56,8 +71,14 @@ function App() {
     <div className={style.bg}>
       <div className={style.container}>
         <h1 className={style.heading}>React Firebase-v9 Todo App</h1>
-        <form className={style.form}>
-          <input type="text" placeholder="Add todo" className={style.input} />
+        <form className={style.form} onSubmit={createTodo}>
+          <input
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            type="text"
+            placeholder="Add todo"
+            className={style.input}
+          />
           <button className={style.button}>
             <AiOutlinePlus />
           </button>
@@ -67,7 +88,11 @@ function App() {
             <Todo key={idx} todo={todo} toggleComplete={toggleComplete} />
           ))}
         </ul>
-        <p className={style.count}>You have {todos.length} todos</p>
+        {todos.length < 1 ? (
+          <p className={style.count}>You have 0 todos</p>
+        ) : (
+          <p className={style.count}>You have {todos.length} todos</p>
+        )}
       </div>
     </div>
   );
