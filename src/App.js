@@ -3,12 +3,12 @@ import { AiOutlinePlus } from "react-icons/ai";
 import Todo from "./components/Todo";
 
 const style = {
-  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740]`,
+  bg: `h-screen w-screen p-4 bg-gradient-to-r from-[#477998] to-[#F64740] pt-16`,
   container: `bg-slate-100 max-w-[500px] w-full m-auto rounded-md shadow-xl p-4`,
   heading: `text-3xl font-bold text-center text-gray-700 p-2`,
   form: `flex justify-between mt-4`,
-  input: `border p-2 w-full text-xl focus:outline-[#F64740]`,
-  button: `border p-4 ml-2 bg-[#F64740] text-slate-100`,
+  input: `border p-2 w-full text-xl focus:outline-[#477998]`,
+  button: `border p-4 ml-2 bg-[#477998] text-slate-100`,
   count: `text-center  p-2`,
 };
 
