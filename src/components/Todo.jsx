@@ -11,12 +11,18 @@ const style = {
   delete: `hover:text-[#F64740]`,
 };
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleComplete }) => {
   return (
-    <li className={style.li}>
+    <li className={todo.completed ? style.complete : style.li}>
       <div className={style.row}>
-        <input type="checkbox" />
-        <p className={style.text}>{todo}</p>
+        <input
+          onChange={() => toggleComplete(todo)}
+          type="checkbox"
+          checked={todo.completed ? "checked" : ""}
+        />
+        <p className={todo.completed ? style.textComplete : style.text}>
+          {todo.text}
+        </p>
       </div>
       <button>
         <FaRegTrashAlt className={style.delete} />
