@@ -9,6 +9,9 @@
 - Tailwind CSS
 - React Icons
 
+## Live Demo 
+[React-Firebasev9-Todo-App](https://amkam-rf-todos.netlify.app/)
+
 ## Author:
 
 👤 Amadu Kamara
